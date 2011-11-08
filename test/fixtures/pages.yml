@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  catalogue: 
+  image_url: MyString
+  page_number: 1
+
+two:
+  catalogue: 
+  image_url: MyString
+  page_number: 1

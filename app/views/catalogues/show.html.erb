@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @catalogue.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @catalogue.category %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= link_to @catalogue.user.name, @catalogue.user %>
+</p>
+
+<%= link_to 'Add new page',  new_page_path(:catalogue_id => @catalogue.id) %> |
+<%= link_to 'Edit', edit_catalogue_path(@catalogue) %> |
+<%= link_to 'Back', catalogues_path %>

@@ -1,0 +1,139 @@
+/* Header */
+header {
+  height: 42px;
+  width: 100%;
+  background: -webkit-linear-gradient(top, #386083, #244C70);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+header .container-980 h1 {
+  display: inline-block;
+  height: 100%;
+  width: 200px;
+  line-height: 42px;
+  font-family: 'Lobster', cursive;
+}
+
+header .container-980 h1 a {
+  display: inline-block;
+  font-size: 28px;
+  color: #f7f7f7;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+header .container-980 .button {
+  display: inline-block;
+  position: absolute;
+  bottom: 7px;
+  height: 22px;
+  line-height: 22px;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: left; 
+  background-color: #333;
+  text-shadow: black 0 1px 1px;
+  padding: 0 6px;
+  border: 1px solid #0e3456;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 0 rgba(255,255,255,0.1), 0px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: none;
+  cursor: pointer;
+}
+
+header .container-980 .button.category {
+  right: 38px;
+  width: 100px;
+  background-image: url(<%= asset_path 'arrow_down.png' %>), -webkit-linear-gradient(top, #466b8d, #34536f);
+  background-repeat: no-repeat, repeat;
+  background-position: 98px 10px, 0 0;
+}
+
+header .container-980 .button.settings {
+  right: 0;
+  width: 21px;
+  background-image: url(<%= asset_path 'settings.png' %>), -webkit-linear-gradient(top, #466b8d, #34536f);
+  background-repeat: no-repeat, repeat;
+  background-position: center center, 0 0;
+}
+
+header .container-980 .button.category.active {
+    background-image: url(<%= asset_path 'arrow_up.png' %>), -webkit-linear-gradient(top, #466b8d, #34536f);
+}
+
+header .container-980 .dropdown {
+  display: none;
+  position: absolute;
+  top: 29px;
+  right: 0;
+  width: 112px;
+  list-style: none;
+  z-index: 3;
+}
+
+
+/* Log In Hiding/Login */
+body:not(.logged-in) header .container-980 .dropdown.options li:not(.logged-out),
+body.logged-in header .container-980 .dropdown.options .logged-out {
+  display: none;
+}
+
+header .container-980 .button.active .dropdown {
+  display: block;
+}
+
+header .container-980 .tail {
+  position: absolute;
+  background: url(<%= asset_path 'tail.png' %>) no-repeat;
+  top: -9px;
+  height: 20px;
+  width: 20px;
+  list-style: none;
+}
+
+header .container-980 .dropdown.categories .tail {
+  right: 47px;
+}
+
+header .container-980 .dropdown.options .tail {
+  right: 7px;
+}
+
+header .container-980 .dropdown ul {
+  background: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+  border-radius: 3px;
+}
+
+header .container-980 .dropdown ul li {
+  padding: 0 6px;
+}
+
+header .container-980 .dropdown ul li.active {
+  display: none;
+}
+
+header .container-980 .dropdown ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+  height: 100%;
+  width: 100%;
+}
+
+header .container-980 .dropdown ul li a:hover {
+  color: #111;
+  cursor: pointer;
+}

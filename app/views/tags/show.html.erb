@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @tag.product %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%= @tag.page %>
+</p>
+
+<p>
+  <b>Top position:</b>
+  <%= @tag.top_position %>
+</p>
+
+<p>
+  <b>Left position:</b>
+  <%= @tag.left_position %>
+</p>
+
+
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tags_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product: 
+  page: 
+  top_position: 1
+  left_position: 1
+
+two:
+  product: 
+  page: 
+  top_position: 1
+  left_position: 1

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>brillzy</title>
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <%= stylesheet_link_tag    "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Lobster|Mate+SC|Fjord+One' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body <%= current_user ? "class='logged-in'":""%>>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=312662172082217";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div id="wrapper">
+    <header>
+    <div class="container-980">
+      <h1><a href="/">brillzy</a></h1>
+      <div class="button category">all  <!-- insert active category -->
+        <div class="dropdown categories">
+          <div class="tail"></div>
+          <ul>
+            <li class="all active"><a href="#">all</a></li> <!-- hide active -->
+            <li class="accessories"><a href="#">accessories</a></li>
+            <li class="apparel"><a href="#">apparel</a></li>
+            <li class="art"><a href="#">art</a></li>
+            <li class="home"><a href="#">home</a></li>
+            <li class="media"><a href="#">media</a></li>
+            <li class="shoes"><a href="#">shoes</a></li>
+            <li class="tech"><a href="#">tech</a></li>
+          </ul>
+        </div> <!-- End of .categories-->
+      </div>  <!-- End of .category -->
+      <div class="button settings">
+        <div class="dropdown options">
+          <div class="tail"></div>
+          <ul>
+            <li class="account"><a href="#">account</a></li>
+            <li class="help"><a href="#">help</a></li>
+            <li class="logout"><%= link_to "logout", signout_path %></li>
+            <li class="sign-in logged-out"><%= link_to "sign in", "/auth/facebook" %></li>
+            <li class="register logged-out"><a href="#">register</a></li>
+          </ul>
+        </div> <!-- End of .options-->
+      </div>  <!-- End of .settings -->
+    </div>
+  </header>
+
+    <div id="user_nav">
+      <% if current_user %>
+        Welcome <%= current_user.name %>!
+      <% end %>
+    </div>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+  	<div class="main container-980">
+
+    	<%= yield %>
+
+  	</div>  <!-- END OF: .main -->
+  </div>  <!-- END OF: .wrapper -->
+  <footer>
+    <ul>
+      <li class="about"><a href="#">about</a></li>
+      <li class="contact"><a href="#">contact</a></li>
+    </ul>
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.button').click(function(){
+      $(this).toggleClass('active');
+    });
+  });
+  </script>
+</body>
+</html>

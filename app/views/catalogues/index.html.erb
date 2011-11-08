@@ -1,0 +1,92 @@
+
+<% count = @catalogues.count %>
+
+<% @catalogues.each do |catalogue| %>
+
+	<% if count == @catalogues.count %>
+    <div class="issue featured">
+
+      <div class="facebook" > <!-- START: Social -->  <!-- SINA: insert url's of relevant issue/page in each social button -->
+        <div class="fb-like" data-href="brillzy.com/1.html" data-send="false" data-layout="button_count" data-width="55" data-show-faces="false"></div>
+      </div>
+      <div class="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="brillzy.com/1.html" data-text="brillzy" data-count="none"></a>
+      </div> <!-- END: social -->
+
+      <div class="text-wrapper">
+       	<div class="link">
+      		<%= link_to content_tag(:span), catalogue %>
+		</div>
+        <h3>
+          <span class="category">Fashion</span>
+          <span class="number">No. <%= count %></span>
+          <span class="title"> / <%= catalogue.name %></span>
+          <span class="count"><%= catalogue.pages.count.to_s + ((catalogue.pages.count==1) ? " page" : " pages")%></span>
+        </h3>
+        <p class="description"><%= catalogue.description %></p>
+      </div>
+      <% pages = catalogue.pages.order("page_number ASC") %>
+      <div class="images">
+      <% pages.each do |page| %>
+        <div class="image-wrapper">
+          <%= link_to image_tag(asset_path(File.join 'cat_images', catalogue.id.to_s, page.image_url)), page %>
+        </div>
+
+      <% end %>
+    	<div style="clear:both;"></div>
+      </div>
+    </div>
+    <!-- END OF ISSUE -->
+    <% else %>
+    <!-- ISSUE.standard  && main.css -->
+    <div class="issue">
+      <div class="facebook" > <!-- START: Social -->  <!-- SINA: insert url's of relevant issue/page in each social button -->
+        <div class="fb-like" data-href="brillzy.com/1.html" data-send="false" data-layout="button_count" data-width="55" data-show-faces="false"></div>
+      </div>
+      <div class="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="brillzy.com/1.html" data-text="brillzy" data-count="none"></a>
+      </div> <!-- END: social -->
+      <div class="text-wrapper">
+        <div class="link">
+      		<%= link_to content_tag(:span), catalogue %>
+		</div>
+        <h3>
+          <span class="category">Fashion</span>
+          <span class="number">No. <%= count %></span>
+          <span class="title"> / <%= catalogue.name %></span>
+          <span class="count"><%= catalogue.pages.count.to_s + ((catalogue.pages.count==1) ? " page" : " pages")%></span>
+        </h3>
+        <p class="description"><%= catalogue.description %></p>
+      </div>
+      <div class="images">
+        <div class="image-wrapper">
+          <% page = catalogue.pages.order("page_number ASC").first %>
+          <%= link_to image_tag(asset_path(File.join 'cat_images', catalogue.id.to_s, page.image_url)), page %>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+    <!-- END OF ISSUE -->
+	<% end %>
+	<% count -= 1 %>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= link_to 'Show', catalogue %></td>
+    <td><%= link_to 'Edit', edit_catalogue_path(catalogue) %></td>
+    <td><%= link_to 'Destroy', catalogue, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+</table>
+
+<% end %>
+
+
+<br />
+
+<%= link_to 'New Catalogue', new_catalogue_path %>

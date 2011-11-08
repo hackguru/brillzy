@@ -1,0 +1,33 @@
+/* Category Page */
+/* General */
+html {
+  background: url(<%= asset_path 'bg.png' %>) repeat;
+}
+
+body {
+  min-width: 980px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container-980 {
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
+}
+
+/*
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+*/
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -22px; /* the bottom margin is the negative value of the footer's height */
+}
+footer {
+  height: 22px; /* .push must be the same height as .footer */
+}

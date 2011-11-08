@@ -1,0 +1,29 @@
+<h1>Listing tags</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Page</th>
+    <th>Top position</th>
+    <th>Left position</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tags.each do |tag| %>
+  <tr>
+    <td><%= tag.product %></td>
+    <td><%= tag.page %></td>
+    <td><%= tag.top_position %></td>
+    <td><%= tag.left_position %></td>
+    <td><%= link_to 'Show', tag %></td>
+    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+    <td><%= link_to 'Destroy', tag, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tag', new_tag_path %>
